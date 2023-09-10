@@ -24,17 +24,15 @@ def index():
                 'icon': r['weather'][0]['icon'],
             }
 
-            # Add the weather data to the list of cities
             cities.append(weather_data)
 
-    # Limit the number of cities per row to 5
+
     cities_per_row = [cities[i:i + 5] for i in range(0, len(cities), 5)]
 
     return render_template('index.html', cities_per_row=cities_per_row)
 
 @app.route('/remove/<int:index>')
 def remove_city(index):
-    # Remove a city from the list based on its index
     if 0 <= index < len(cities):
         cities.pop(index)
     return redirect(url_for('index'))
