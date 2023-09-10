@@ -33,6 +33,7 @@ def index():
 
 @app.route('/remove/<int:index>')
 def remove_city(index):
+
     if 0 <= index < len(cities):
         cities.pop(index)
     return redirect(url_for('index'))

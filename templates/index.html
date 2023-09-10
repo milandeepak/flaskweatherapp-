@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>What's the weather like?</title>
-    <!-- Replace with your Tailwind CSS CDN link or use a local file -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
 </head>
 
 <body>
-    <div class="bg-blue-500 py-4">
+    <div class="bg-purple-500 h-[100px] p-4 m-5 rounded-lg font-bold">
         <div class="container mx-auto">
-            <h1 class="text-3xl text-white font-semibold text-center">
-                What's the weather like?
+            <h1 class="text-3xl text-white font-semibold text-center p-5 font-mono">
+                What's the Weather like?
             </h1>
         </div>
     </div>
@@ -31,7 +30,7 @@
                         </div>
                         <div class="mb-6">
                             <div class="flex justify-center">
-                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline" type="submit">
+                                <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline" type="submit">
                                     Get Weather
                                 </button>
                             </div>
@@ -42,7 +41,6 @@
         </div>
     </div>
 
-    <!-- Display cities and weather data -->
     <div class="container mx-auto">
         {% for row in cities_per_row %}
         <div class="flex mb-4">
@@ -69,9 +67,11 @@
         {% endfor %}
     </div>
 
-    <div class="bg-gray-200 py-4">
-        <!-- Footer content here -->
-    </div>
+    <footer class="bg-purple-200 py-4 text-center m-4 rounded-lg font-mono font-bold">
+        <p>Weather app</p>
+        <p>with ❤️ by milandeepak</p>
+    </footer>
+
 </body>
 
 </html>
