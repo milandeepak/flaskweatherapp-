@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What's the weather like?</title>
+    <!-- Replace with your Tailwind CSS CDN link or use a local file -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
+</head>
+
+<body>
+    <div class="bg-blue-500 py-4">
+        <div class="container mx-auto">
+            <h1 class="text-3xl text-white font-semibold text-center">
+                What's the weather like?
+            </h1>
+        </div>
+    </div>
+    <div class="py-8">
+        <div class="container mx-auto">
+            <div class="flex justify-center">
+                <div class="w-1/2">
+                    <form method="POST">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="city">
+                                City Name
+                            </label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="city" type="text" placeholder="Enter City Name">
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex justify-center">
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline" type="submit">
+                                    Get Weather
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Display cities and weather data -->
+    <div class="container mx-auto">
+        {% for row in cities_per_row %}
+        <div class="flex mb-4">
+            {% for city in row %}
+            <div class="w-1/5 px-2">
+                <div class="bg-white rounded-lg shadow-lg p-4">
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                            <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Weather Icon" class="w-12 h-12">
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-semibold">{{ city.city }}</h2>
+                            <p class="text-sm text-gray-700">{{ city.temperature }}° F</p>
+                            <p class="text-sm text-gray-700">{{ city.description }}</p>
+                        </div>
+                        <div class="ml-auto">
+                            <a href="/remove/{{ loop.index0 }}" class="text-red-500 hover:text-red-700 font-semibold">×</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="bg-gray-200 py-4">
+        <!-- Footer content here -->
+    </div>
+</body>
+
+</html>
